@@ -24,7 +24,7 @@ public class NumberGuessGame implements GameInterface {
 
     @Override
     public void run() {
-        int rng = (int) Math.ceil(Math.random()*10);
+        int rng = randomNumber(1,10);
         System.out.println("I'm thinking of a number 1-10. Can you guess it in one try?");
         int guess = console.getIntegerInput("Enter your guess: ");
         if(guess == rng) {
@@ -32,9 +32,13 @@ public class NumberGuessGame implements GameInterface {
         } else {
             System.out.println("Sorry, you lose. The number was " + rng);
         }
-        String input = console.getStringInput("Play again? ");
+        String input = console.getStringInput("Play again, " + this.activePlayer.getArcadeAccount().getAccountName() + "? ");
         if(input.equals("yes")){
             run();
         }
+    }
+
+    public int randomNumber(int min, int max) {
+        return (int) (Math.random() * (max - min) + min);
     }
 }

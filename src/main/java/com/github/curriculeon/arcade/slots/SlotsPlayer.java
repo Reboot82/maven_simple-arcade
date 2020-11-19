@@ -9,6 +9,10 @@ import com.github.curriculeon.arcade.PlayerInterface;
 public class SlotsPlayer implements PlayerInterface {
     private ArcadeAccount arcadeAccount;
 
+    public SlotsPlayer(ArcadeAccount arcadeAccount) {
+        this.arcadeAccount = arcadeAccount;
+    }
+
     @Override
     public ArcadeAccount getArcadeAccount() {
         return this.arcadeAccount;
